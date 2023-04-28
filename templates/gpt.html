@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>文件下载</title>
+</head>
+<body>
+    <h2>请选择要下载的文件：</h2>
+    <form method="POST" action="{{ url_for('edit') }}">
+        <select name="data_select">
+            {% if options %}
+                {% for option in options %}
+                    <option value="{{ option['value'] }}">{{ option['text'] }}</option>
+                {% endfor %}
+            {% else %}
+                <option>没有文件可供下载</option>
+            {% endif %}
+        </select>
+        <br>
+        <br>
+        <input type="submit" name="operation" value="下载文件">
+    </form>
+</body>
+</html>
